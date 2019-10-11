@@ -15,4 +15,16 @@ module.exports = {
             template: "./src/template.html"
         })
     ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    "style-loader", // 3. Turns css into DOM
+                    "css-loader", // 2. Turns css into commonjs
+                    // "sass-loader" // 1. Turns sass into css
+                ]
+            }
+        ]
+    }
 };
