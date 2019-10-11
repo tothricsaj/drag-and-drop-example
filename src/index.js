@@ -1,5 +1,11 @@
 import "./main.scss";
 
-console.log('hello notes!!!!');
-console.log('do i need clean up???');
-console.log('Yes, I do!');
+var el = document.getElementsByClassName('dd-box')[0];
+
+el.addEventListener('mousedown', (e) => {
+    el.style.borderColor = 'green';
+});
+
+el.addEventListener('mouseup', (e) => {
+    el.style.borderColor = 'orange';
+});
