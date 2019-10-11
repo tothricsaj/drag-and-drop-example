@@ -1,0 +1,25 @@
+{
+  "name": "drag-and-drop-example",
+  "version": "1.0.0",
+  "description": "drag-and-drop example due to practice webpack",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.settings.js --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tothricsaj/drag-and-drop-example.git"
+  },
+  "author": "tothricsaj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tothricsaj/drag-and-drop-example/issues"
+  },
+  "homepage": "https://github.com/tothricsaj/drag-and-drop-example#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  }
+}
