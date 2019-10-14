@@ -2,25 +2,24 @@ import "./main.scss";
 
 var el = document.getElementsByClassName('dd-box')[0];
 
-document.addEventListener('mousemove', (e) => {
-    // console.log(`This is the coordinates: x -> ${e.screenX}, y -> ${e.screenY}`);
+el.addEventListener('mousedown', (event) => {
+    el.style.zIndex = 10000;
 
-    let xCoor = e.screenX;
-    let yCoor = e.screenY;
+    moveAt(event.pageX, event.pageY);
 
-    el.addEventListener('mousedown', (e) => {
-        el.style.borderColor = 'green';
+    function moveAt(pageX, pageY) {
+        el.style.left = pageX - el.offsetWidth / 2 + 'px';
+        el.style.top = pageY - el.offsetHeight / 2 + 'px';
+    }
 
-        // console.log(`x->${xCoor}, y->${yCoor}`);
+    function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+    }
 
-        el.style.top = yCoor;
-        el.style.left = xCoor;
-    });
+    document.addEventListener('mousemove', onMouseMove);
 
-    el.addEventListener('mouseup', (e) => {
-        el.style.borderColor = 'orange';
-
-        el.style.top = '0';
-        el.style.left = '0';
-    });
+    el.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        el.onmouseup = null;
+    }
 });
