@@ -12,7 +12,10 @@ export default function AddnOte() {
         zIndex++;
 
         let div = `
-            <div class="dd-box" style="top: ${elTop}px; left: ${elLeft}px; z-index: ${zIndex}">I still here :(</div>
+            <div class="dd-box" style="top: ${elTop}px; left: ${elLeft}px; z-index: ${zIndex}">
+                <div class="dd-box__title">This is the title</div>
+                I still here :(
+            </div>
         `;
         document.body.insertAdjacentHTML('afterbegin', div);
         addMove();
