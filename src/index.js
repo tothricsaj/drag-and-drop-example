@@ -1,8 +1,8 @@
 import "./main.scss";
+import run from './app/app';
 
-var elTop = 60;
-var elLeft = 10;
-var zIndex = 0;
+
+run();
 
 /*
 var el = document.getElementsByClassName('dd-box')[0];
@@ -44,14 +44,4 @@ el.addEventListener('mousedown', (event) => {
 });
 */
 
-var addBtn = document.getElementById('add-note');
-addBtn.addEventListener('click', (e) => {
-    elTop += 5;
-    elLeft += 5;
-    zIndex++;
 
-    let div = `
-        <div class="dd-box" style="top: ${elTop}px; left: ${elLeft}px; z-index: ${zIndex}">I still here :(</div>
-    `;
-    document.body.insertAdjacentHTML('afterbegin', div);
-});
