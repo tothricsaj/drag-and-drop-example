@@ -1,6 +1,6 @@
 import "./main.scss";
 
-var el = document.getElementsByClassName('dd-box')[0];
+var el = document.getElementsByClassName('dd-box');
 
 el.addEventListener('mousedown', (event) => {
 
@@ -11,7 +11,7 @@ el.addEventListener('mousedown', (event) => {
     el.style.backgroundColor = 'orange';
     el.style.color = 'black';
 
-    el.innerHTML = 'I am dragging :)';
+    el.innerHTML = 'I am been dragging :)';
 
     document.body.append(el);
 
