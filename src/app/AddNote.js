@@ -19,7 +19,11 @@ export default function AddnOte() {
                     This is the title
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
+                <div id="content-${keyCount}" class="dd-box__content">
+                    
                     I still here :(
+                </div>
+                
             </div>
         `;
         document.body.insertAdjacentHTML('afterbegin', div);
@@ -27,12 +31,14 @@ export default function AddnOte() {
 
         let ddBox = document.querySelector(`[data-key="${keyCount}"]`);
         let removerBtn = document.querySelector(`[data-removerId="remover-${keyCount}"]`);
+        let contentBox = document.querySelector(`#content-${keyCount}`);
 
         removerBtn.addEventListener('click', (e) => {
             document.body.removeChild(ddBox);
         });
 
         removerBtn.addEventListener('mousedown', (e) => e.stopPropagation());
+        contentBox.addEventListener('mousedown', (e) => e.stopPropagation());
 
         keyCount++;
     });

@@ -8,20 +8,27 @@ body {
 
 .dd-box {
   width: 300px;
-  height: 150px;
+  height: 20px;
   position: absolute;
+  background-color: orange;
   border: 3px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-bottom: unset;
+  cursor: pointer;
+
+  .dd-box__content {
+    width: 300px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-top: unset;
+  }
 
   .dd-box__title {
     width: calc(100% - 10px);
     height: 20px;
     padding: 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
     text-align: center;
     border-bottom: 1px solid black;
 
