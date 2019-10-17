@@ -19,7 +19,7 @@ export default function AddnOte() {
                     This is the title
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
-                I still here :(
+                    I still here :(
             </div>
         `;
         document.body.insertAdjacentHTML('afterbegin', div);
@@ -32,7 +32,7 @@ export default function AddnOte() {
             document.body.removeChild(ddBox);
         });
 
-        console.log(ddBox);
+        removerBtn.addEventListener('mousedown', (e) => e.stopPropagation());
 
         keyCount++;
     });

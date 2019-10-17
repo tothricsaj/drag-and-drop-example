@@ -1,8 +1,6 @@
 export function addMove() {
     let el = document.getElementsByClassName('dd-box')[0];
 
-    console.log(el);
-
     el.addEventListener('mousedown', (event) => {
 
         let shiftX = event.clientX - el.getBoundingClientRect().left;
@@ -15,8 +13,14 @@ export function addMove() {
         moveAt(event.pageX, event.pageY);
 
         function moveAt(pageX, pageY) {
+            el.style.left = pageX - el.offsetWidth / 20 + 'px';
+            el.style.top = pageY - el.offsetHeight / 20 + 'px';
+
+            /*
             el.style.left = pageX - shiftX + 'px';
             el.style.top = pageY - shiftY + 'px';
+
+            */
         }
 
         function onMouseMove(event) {
@@ -28,7 +32,9 @@ export function addMove() {
         el.onmouseup = function () {
             document.removeEventListener('mousemove', onMouseMove);
             el.onmouseup = null;
-        }
+        };
+
+        event.stopPropagation();
     });
 }
 
