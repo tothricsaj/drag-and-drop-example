@@ -13,8 +13,8 @@ export function addMove() {
         moveAt(event.pageX, event.pageY);
 
         function moveAt(pageX, pageY) {
-            el.style.left = pageX - el.offsetWidth / 20 + 'px';
-            el.style.top = pageY - el.offsetHeight / 20 + 'px';
+            el.style.left = pageX - shiftX + 'px';
+            el.style.top = pageY - shiftY + 'px';
 
             /*
             el.style.left = pageX - shiftX + 'px';
