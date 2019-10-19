@@ -15,7 +15,7 @@ export default function AddnOte() {
 
         let div = `
             <div class="dd-box" data-key="${keyCount}" style="top: ${elTop}px; left: ${elLeft}px; z-index: ${zIndex}">
-                <div class="dd-box__title">
+                <div class="dd-box__title" id="title-${keyCount}">
                     This is the title
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
@@ -23,15 +23,17 @@ export default function AddnOte() {
                     
                     I still here :(
                 </div>
-                
+                <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
             </div>
         `;
         document.body.insertAdjacentHTML('afterbegin', div);
         addMove();
 
         let ddBox = document.querySelector(`[data-key="${keyCount}"]`);
+        let boxTitle = document.querySelector(`#title-${keyCount}`);
         let removerBtn = document.querySelector(`[data-removerId="remover-${keyCount}"]`);
         let contentBox = document.querySelector(`#content-${keyCount}`);
+        let resizerBox = document.querySelector(`#resizer-${keyCount}`);
 
         removerBtn.addEventListener('click', (e) => {
             document.body.removeChild(ddBox);
@@ -39,6 +41,16 @@ export default function AddnOte() {
 
         removerBtn.addEventListener('mousedown', (e) => e.stopPropagation());
         contentBox.addEventListener('mousedown', (e) => e.stopPropagation());
+
+        resizerBox.addEventListener('mousedown', (e) => {
+            e.stopPropagation();
+            resizerBox.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        });
+
+        resizerBox.addEventListener('mouseup', (e) => {
+            resizerBox.style.backgroundColor = 'transparent';
+            boxTitle.style.width = '500px';
+        });
 
         keyCount++;
     });
