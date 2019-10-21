@@ -44,7 +44,12 @@ export default function AddnOte() {
 
         resizerBox.addEventListener('mousedown', (e) => {
             e.stopPropagation();
-            resizerBox.style.backgroundColor = 'rgba(0,0,0,0.5)';
+            let style = resizerBox.style;
+            style.width = '300px';
+            style.height = '180px';
+            style.top = '0';
+            style.left = '0';
+            style.backgroundColor = 'rgba(0,0,0,0.5)';
         });
 
         resizerBox.addEventListener('mouseup', (e) => {
