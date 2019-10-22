@@ -45,16 +45,42 @@ export default function AddnOte() {
         resizerBox.addEventListener('mousedown', (e) => {
             e.stopPropagation();
             let style = resizerBox.style;
-            style.width = '300px';
-            style.height = '180px';
+            let contBoxStyle = contentBox.style;
+
+            style.width = ddBox.width + 'px';
+            style.height = contBoxStyle.outerHeight + ddBox.outerHeight + 'px';
+
+            console.log(`megfogva ${style.height}`);
+            console.log(`megfogva ${ddBox.height}`);
+
             style.top = '0';
-            style.left = '0';
             style.backgroundColor = 'rgba(0,0,0,0.5)';
         });
 
         resizerBox.addEventListener('mouseup', (e) => {
-            resizerBox.style.backgroundColor = 'transparent';
-            boxTitle.style.width = '500px';
+            let titleStyle = boxTitle.style;
+            let contBoxStyle = contentBox.style;
+            let style = resizerBox.style;
+
+            style.width = ddBox.width + 'px';
+            style.height = contBoxStyle.height + ddBox.height + 30 + 'px';
+
+            let contHeigh = contBoxStyle.height.substring(0, contBoxStyle.height.substring(0,contBoxStyle.height.length-2));
+            console.log(`substringgel ${contHeigh}`);
+
+            titleStyle.width = style.width;
+            contBoxStyle.width = style.width;
+            ddBox.style.width = style.width;
+            contBoxStyle.height = style.height;
+
+            style.backgroundColor = 'transparent';
+            style.top = `${ddBox.height}px`;
+            style.left = '0';
+            // style.right = '0';
+            // style.bottom = 'unset';
+            // style.bottom = -1*(style.height - ddBox.height - 15) + 'px';
+            // style.width = '15px';
+            // style.height = '15px';
         });
 
         keyCount++;
