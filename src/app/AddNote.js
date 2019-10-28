@@ -1,4 +1,5 @@
 import { addMove } from "./MoveNotes";
+import Edit from '../assets/edit_icon.svg';
 
 let elTop = 60;
 let elLeft = 10;
@@ -17,7 +18,7 @@ export default function AddnOte() {
             <div class="dd-box" data-key="${keyCount}" style="top: ${elTop}px; left: ${elLeft}px; z-index: ${zIndex}">
                 <div class="dd-box__title" id="title-${keyCount}">
                     Add title
-                    <img src="assets/edit_icon.svg" alt="fuck">
+                    <img src="${Edit}" alt="fuck">
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
                 <div id="content-${keyCount}" class="dd-box__content">
