@@ -16,13 +16,11 @@ export default function AddnOte() {
         let div = `
             <div class="dd-box" data-key="${keyCount}" style="top: ${elTop}px; left: ${elLeft}px; z-index: ${zIndex}">
                 <div class="dd-box__title" id="title-${keyCount}">
-                    This is the title
+                    Add title
+                    <img src="assets/edit_icon.svg" alt="fuck">
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
                 <div id="content-${keyCount}" class="dd-box__content">
-                    
-                    I still here :(
-                    
                     <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
                 </div>
             </div>
