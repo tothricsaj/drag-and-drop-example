@@ -83,7 +83,13 @@ export default function AddnOte() {
             titleStyle.width = style.width -10;
             contBoxStyle.width = style.width;
             ddBox.style.width = style.width;
+
+            contentEditor.style.width = contBoxStyle.width;
+
             contBoxStyle.height = style.height;
+
+            contentEditor.style.height = contBoxStyle.height;
+            saveBtn.style.height = contBoxStyle.height;
 
             style.backgroundColor = 'transparent';
             style.top = 'unset';
