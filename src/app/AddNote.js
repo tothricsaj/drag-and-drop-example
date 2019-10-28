@@ -65,18 +65,15 @@ export default function AddnOte() {
             style.width = ddBox.width + 'px';
             style.height = contBoxStyle.height + ddBox.height + 30 + 'px';
 
-            let contHeigh = contBoxStyle.height.substring(0, contBoxStyle.height.substring(0,contBoxStyle.height.length-2));
-            console.log(`substringgel ${contHeigh}`);
-
             titleStyle.width = style.width;
             contBoxStyle.width = style.width;
             ddBox.style.width = style.width;
             contBoxStyle.height = style.height;
 
             style.backgroundColor = 'transparent';
-            style.top = `${ddBox.height}px`;
+            style.top = `${ddBox.clientHeight}px`;
             style.left = '0';
-            // style.right = '0';
+            style.height = contentBox.clientHeight + 'px';
             // style.bottom = 'unset';
             // style.bottom = -1*(style.height - ddBox.height - 15) + 'px';
             // style.width = '15px';
