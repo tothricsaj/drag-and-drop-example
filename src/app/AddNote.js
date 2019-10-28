@@ -48,6 +48,8 @@ export default function AddnOte() {
         saveBtn.addEventListener('click', (e) => {
             contentEditor.style.display = 'none';
             saveBtn.style.display = 'none';
+
+            contentBox.innerHTML = contentEditor.value;
         });
 
         removerBtn.addEventListener('click', (e) => {
