@@ -22,18 +22,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     border: 3px solid black;
     border-top: unset;
   }
 
   .dd-box__resizer {
-    width: 100%;
-    height: 150px;
+    width: 15px;
+    height: 15px;
     resize: both;
     overflow: auto;
     position: absolute;
-    top: 30px;
-    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   .dd-box__title {
