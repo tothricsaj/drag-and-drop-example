@@ -17,11 +17,13 @@ export default function AddnOte() {
         let div = `
             <div class="dd-box" data-key="${keyCount}" style="top: ${elTop}px; left: ${elLeft}px; z-index: ${zIndex}">
                 <div class="dd-box__title" id="title-${keyCount}">
-                    Add title
+                    No title
                     <img class="dd-box__edit-btn" id="edit-${keyCount}" src="${Edit}" alt="fuck">
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
                 <div id="content-${keyCount}" class="dd-box__content">
+                    <textarea class="dd-box__content-editor" id="content-editor-${keyCount}" style="display: none;"></textarea>
+                    <div class="dd-box__save-btn" id="save-btn-${keyCount}" style="display: none;">Save</div>
                     <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
                 </div>
             </div>
@@ -31,14 +33,28 @@ export default function AddnOte() {
 
         let ddBox = document.querySelector(`[data-key="${keyCount}"]`);
         let boxTitle = document.querySelector(`#title-${keyCount}`);
+        let editBtn = document.querySelector(`#edit-${keyCount}`);
         let removerBtn = document.querySelector(`[data-removerId="remover-${keyCount}"]`);
         let contentBox = document.querySelector(`#content-${keyCount}`);
         let resizerBox = document.querySelector(`#resizer-${keyCount}`);
+        let contentEditor = document.querySelector(`#content-editor-${keyCount}`);
+        let saveBtn = document.querySelector(`#save-btn-${keyCount}`);
+
+        editBtn.addEventListener('click', (e) => {
+            contentEditor.style.display = 'block';
+            saveBtn.style.display = 'block';
+        });
+
+        saveBtn.addEventListener('click', (e) => {
+            contentEditor.style.display = 'none';
+            saveBtn.style.display = 'none';
+        });
 
         removerBtn.addEventListener('click', (e) => {
             document.body.removeChild(ddBox);
         });
 
+        editBtn.addEventListener('mousedown', (e) => e.stopPropagation());
         removerBtn.addEventListener('mousedown', (e) => e.stopPropagation());
         contentBox.addEventListener('mousedown', (e) => e.stopPropagation());
 

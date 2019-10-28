@@ -15,9 +15,13 @@ body {
   border-bottom: unset;
   cursor: pointer;
 
-  .dd-box__content {
+  %content-dimensions {
     width: 300px;
     height: 150px;
+  }
+
+  .dd-box__content {
+    @extend %content-dimensions;
     margin-left: -3px;
     display: flex;
     justify-content: center;
@@ -25,6 +29,11 @@ body {
     position: relative;
     border: 3px solid black;
     border-top: unset;
+  }
+
+  .dd-box__content-editor {
+    @extend %content-dimensions;
+    resize: unset;
   }
 
   .dd-box__resizer {
