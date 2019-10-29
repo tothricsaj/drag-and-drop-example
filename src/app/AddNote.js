@@ -22,8 +22,8 @@ export default function AddnOte() {
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
                 <div id="content-${keyCount}" class="dd-box__content">
-                    <textarea class="dd-box__content-editor" id="content-editor-${keyCount}" style="display: none;"></textarea>
-                    <div class="dd-box__save-btn" id="save-btn-${keyCount}" style="display: none;">Save</div>
+                    <textarea class="dd-box__content-editor" id="content-editor-${keyCount}" style="z-index: -1;"></textarea>
+                    <div class="dd-box__save-btn" id="save-btn-${keyCount}" style="z-index: -1;">Save</div>
                     <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
                 </div>
             </div>
@@ -41,13 +41,13 @@ export default function AddnOte() {
         let saveBtn = document.querySelector(`#save-btn-${keyCount}`);
 
         editBtn.addEventListener('click', (e) => {
-            contentEditor.style.display = 'block';
-            saveBtn.style.display = 'block';
+            contentEditor.style.zIndex = '2';
+            saveBtn.style.zIndex = '2';
         });
 
         saveBtn.addEventListener('click', (e) => {
-            contentEditor.style.display = 'none';
-            saveBtn.style.display = 'none';
+            contentEditor.style.zIndex = '-1';
+            saveBtn.style.zIndex = '-1';
 
             contentBox.innerHTML = contentEditor.value;
         });

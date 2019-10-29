@@ -29,11 +29,16 @@ body {
     position: relative;
     border: 3px solid black;
     border-top: unset;
+    background-color: lightgreen;
   }
 
   .dd-box__content-editor {
     @extend %content-dimensions;
     resize: unset;
+  }
+
+  .dd-box__save-btn {
+    background-color: lightseagreen;
   }
 
   .dd-box__resizer {
