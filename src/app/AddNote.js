@@ -22,9 +22,10 @@ export default function AddnOte() {
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
                 <div id="content-${keyCount}" class="dd-box__content">
+                    <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
+                    <div class="dd-box__text-content" id="text-content-${keyCount}"></div>
                     <textarea class="dd-box__content-editor" id="content-editor-${keyCount}" style="z-index: -1;"></textarea>
                     <div class="dd-box__save-btn" id="save-btn-${keyCount}" style="z-index: -1;">Save</div>
-                    <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
                 </div>
             </div>
         `;
@@ -39,6 +40,7 @@ export default function AddnOte() {
         let resizerBox = document.querySelector(`#resizer-${keyCount}`);
         let contentEditor = document.querySelector(`#content-editor-${keyCount}`);
         let saveBtn = document.querySelector(`#save-btn-${keyCount}`);
+        let textContent = document.querySelector(`#text-content-${keyCount}`);
 
         editBtn.addEventListener('click', (e) => {
             contentEditor.style.zIndex = '2';
@@ -46,10 +48,11 @@ export default function AddnOte() {
         });
 
         saveBtn.addEventListener('click', (e) => {
+            console.log('saveBtn is clicked');
             contentEditor.style.zIndex = '-1';
             saveBtn.style.zIndex = '-1';
 
-            contentBox.innerHTML = contentEditor.value;
+            textContent.textContent = contentEditor.value;
         });
 
         removerBtn.addEventListener('click', (e) => {
@@ -85,10 +88,12 @@ export default function AddnOte() {
             titleStyle.width = style.width -10;
             contBoxStyle.width = style.width;
             ddBox.style.width = style.width;
+            textContent.style.width = style.width;
 
             contentEditor.style.width = contBoxStyle.width;
 
             contBoxStyle.height = style.height;
+            textContent.style.height = style.height;
 
             contentEditor.style.height = contBoxStyle.height;
             saveBtn.style.height = contBoxStyle.height;

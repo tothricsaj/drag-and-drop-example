@@ -32,6 +32,12 @@ body {
     background-color: lightgreen;
   }
 
+  .dd-box__text-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   .dd-box__content-editor {
     @extend %content-dimensions;
     resize: unset;
