@@ -22,8 +22,8 @@ export default function AddnOte() {
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
                 <div id="content-${keyCount}" class="dd-box__content">
-                    <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
                     <div class="dd-box__text-content" id="text-content-${keyCount}"></div>
+                    <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
                     <textarea class="dd-box__content-editor" id="content-editor-${keyCount}" style="z-index: -1;"></textarea>
                     <div class="dd-box__save-btn" id="save-btn-${keyCount}" style="z-index: -1;">Save</div>
                 </div>
