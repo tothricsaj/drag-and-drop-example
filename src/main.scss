@@ -57,12 +57,30 @@ body {
     bottom: 0;
   }
 
-  .dd-box__title {
+  %title-dimension {
     width: calc(100% - 10px);
     height: 20px;
     padding: 5px;
+  }
+
+  .dd-box__title {
+    @extend %title-dimension;
     text-align: center;
     border-bottom: 1px solid black;
+    position: relative;
+    z-index: 1;
+
+    .dd-box__title-editor {
+      @extend %title-dimension;
+      position: absolute;
+      top: -3px;
+      left: -1px;
+      resize: unset;
+    }
+
+    .dd-box__title-content {
+      opacity: 1;
+    }
 
     .dd-box__edit-btn {
       width: 15px;

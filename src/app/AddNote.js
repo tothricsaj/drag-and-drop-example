@@ -17,7 +17,8 @@ export default function AddnOte() {
         let div = `
             <div class="dd-box" data-key="${keyCount}" style="top: ${elTop}px; left: ${elLeft}px; z-index: ${zIndex}">
                 <div class="dd-box__title" id="title-${keyCount}">
-                    No title
+                    <div class="dd-box__title-content" id="title-content-${keyCount}">No title</div>
+                    <textarea class="dd-box__title-editor"  id="title-editor-${keyCount}" style="z-index: -1; opacity: 0;">No title</textarea>
                     <img class="dd-box__edit-btn" id="edit-${keyCount}" src="${Edit}" alt="fuck">
                     <div class="dd-box__remover" data-removerId="remover-${keyCount}">x</div>
                 </div>
@@ -41,18 +42,25 @@ export default function AddnOte() {
         let contentEditor = document.querySelector(`#content-editor-${keyCount}`);
         let saveBtn = document.querySelector(`#save-btn-${keyCount}`);
         let textContent = document.querySelector(`#text-content-${keyCount}`);
+        let titleEditor = document.querySelector(`#title-editor-${keyCount}`);
+        let titleContent = document.querySelector(`#title-content-${keyCount}`);
 
         editBtn.addEventListener('click', (e) => {
             contentEditor.style.zIndex = '2';
             saveBtn.style.zIndex = '2';
+            titleEditor.style.zIndex = '2';
+            titleEditor.style.opacity = '1';
         });
 
         saveBtn.addEventListener('click', (e) => {
             console.log('saveBtn is clicked');
             contentEditor.style.zIndex = '-1';
             saveBtn.style.zIndex = '-1';
+            titleEditor.style.zIndex = '-1';
+            titleEditor.style.opacity = '0';
 
             textContent.textContent = contentEditor.value;
+            titleContent.textContent = titleEditor.value;
         });
 
         removerBtn.addEventListener('click', (e) => {
