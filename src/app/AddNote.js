@@ -25,8 +25,8 @@ export default function AddnOte() {
                 <div id="content-${keyCount}" class="dd-box__content">
                     <div class="dd-box__text-content" id="text-content-${keyCount}"></div>
                     <div class="dd-box__resizer" id="resizer-${keyCount}"></div>
-                    <textarea class="dd-box__content-editor" id="content-editor-${keyCount}" style="z-index: -1;"></textarea>
-                    <div class="dd-box__save-btn" id="save-btn-${keyCount}" style="z-index: -1;">Save</div>
+                    <textarea class="dd-box__content-editor" id="content-editor-${keyCount}" style="display: none;"></textarea>
+                    <div class="dd-box__save-btn" id="save-btn-${keyCount}" style="display: none;">Save</div>
                 </div>
             </div>
         `;
@@ -46,6 +46,8 @@ export default function AddnOte() {
         let titleContent = document.querySelector(`#title-content-${keyCount}`);
 
         editBtn.addEventListener('click', (e) => {
+            contentEditor.style.display = 'block';
+            saveBtn.style.display = 'block';
             contentEditor.style.zIndex = '2';
             saveBtn.style.zIndex = '2';
             titleEditor.style.zIndex = '2';
@@ -53,9 +55,8 @@ export default function AddnOte() {
         });
 
         saveBtn.addEventListener('click', (e) => {
-            console.log('saveBtn is clicked');
-            contentEditor.style.zIndex = '-1';
-            saveBtn.style.zIndex = '-1';
+            contentEditor.style.display = 'none';
+            saveBtn.style.display = 'none';
             titleEditor.style.zIndex = '-1';
             titleEditor.style.opacity = '0';
 
