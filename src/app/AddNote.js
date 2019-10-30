@@ -72,6 +72,14 @@ export default function AddnOte() {
         removerBtn.addEventListener('mousedown', (e) => e.stopPropagation());
         contentBox.addEventListener('mousedown', (e) => e.stopPropagation());
 
+        ddBox.addEventListener('mousedown', (e) => {
+            contentBox.style.boxShadow = '13px 10px 5px #444';
+        });
+
+        ddBox.addEventListener('mouseup', (e) => {
+            contentBox.style.boxShadow = 'unset';
+        });
+
         resizerBox.addEventListener('mousedown', (e) => {
             e.stopPropagation();
             let style = resizerBox.style;
