@@ -1,6 +1,7 @@
 import { addMove } from "./MoveNotes";
 import Edit from '../assets/edit_icon.svg';
 import TemplateMaker from './TemplateMaker';
+import Editor from './Editor';
 import Resizer from './Resizer';
 
 let elTop = 60;
@@ -32,24 +33,10 @@ export default function AddnOte() {
         let titleEditor = document.querySelector(`#title-editor-${keyCount}`);
         let titleContent = document.querySelector(`#title-content-${keyCount}`);
 
-        editBtn.addEventListener('click', (e) => {
-            contentEditor.style.display = 'block';
-            saveBtn.style.display = 'block';
-            contentEditor.style.zIndex = '2';
-            saveBtn.style.zIndex = '2';
-            titleEditor.style.zIndex = '2';
-            titleEditor.style.opacity = '1';
-        });
+        let editor = new Editor(editBtn, contentEditor, saveBtn, titleEditor, textContent, titleContent);
 
-        saveBtn.addEventListener('click', (e) => {
-            contentEditor.style.display = 'none';
-            saveBtn.style.display = 'none';
-            titleEditor.style.zIndex = '-1';
-            titleEditor.style.opacity = '0';
-
-            textContent.textContent = contentEditor.value;
-            titleContent.textContent = titleEditor.value;
-        });
+        editor.showEditor();
+        editor.saveEditor();
 
         removerBtn.addEventListener('click', (e) => {
             document.body.removeChild(ddBox);
@@ -67,7 +54,6 @@ export default function AddnOte() {
             contentBox.style.boxShadow = 'unset';
         });
 
-        // TODO resizer here
         let resizer = new Resizer(resizerBox, ddBox, contentBox, boxTitle, contentEditor, textContent, saveBtn);
 
         resizer.grab();
